@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<!--namespace:命名空间，用于隔离SQL -->
+<mapper namespace="com.hwua.dao.DingdanDao">
+   
+  
+   <select id="queryAll1" resultType="dingdan" parameterType="String">
+      select * from dingdan2 where d_username=#{username}
+   </select>
+   <select id="addAll1" parameterType="dingdan" >
+      insert into dingdan2 (d_name,d_shuoming,d_price,d_inventory,d_dizhiid,d_tupian,d_fahuo,d_username) values (#{d_name},#{d_shuoming},#{d_price},#{d_inventory},#{d_dizhiid},#{d_tupian},#{d_fahuo},#{d_username})
+   </select>
+
+
+
+</mapper>

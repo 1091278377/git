@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<!--namespace:命名空间，用于隔离SQL -->
+<mapper namespace="com.hwua.dao.ShopCartDao">
+   
+  
+   <select id="queryAll1" resultType="shopcart" parameterType="string">
+      select * from shopcart where username=#{username}
+   </select>
+   <select id="addAll1" parameterType="shopcart" >
+      insert into shopcart (tupian,name,shuoming,price,inventory,username) values (#{tupian},#{name},#{shuoming},#{price},#{inventory},#{username})
+   </select>
+   <select id="deleteone1" parameterType="int" >
+      delete from shopcart where id=#{id}
+   </select>
+     <select id="queryOne1" resultType="shopcart" parameterType="int">
+      select * from shopcart where id=#{id}
+   </select>
+
+</mapper>

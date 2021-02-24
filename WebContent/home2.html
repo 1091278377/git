@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<a href="javascript:void(0);" onclick="queryall()">显示数据</a>
+<table id="tab"  width="800px"  border="1px">
+        <tr>          
+            <td>id</td>
+            <td>name</td>
+            <td>password</td>
+          </tr>
+     </table>
+</body>
+<script src="./js/jquery-3.3.1.js" ></script>
+<script type="text/javascript">
+   function queryall() {
+	   var datas = {"username":"dadi","password":"12314"};
+	 $.ajax({
+		 url:"http://localhost:8080/SSMDemo2/queryall.do",
+		 data:{},
+			 //JSON.stringify(datas),
+		 dataType:"json",
+		 type:"post",
+		 //contentType:"application/x-www-form-urlencoded",
+     	 dataType:"json",
+     	 success:function(data){
+     		console.log(data);
+     		alert("请求成功"+data[0].username)
+     		 var table ="";
+     		if(data !=null ){
+     			for(var i=0;i<data.length;i++){	    	 
+		    		table +='<tr>'+
+		    		'<td>'+data[i].id+'</td>'+
+		    		'<td>'+data[i].username+'</td>'+
+		    		'<td>'+data[i].password+'</td>'+
+		    		'<tr>';
+     		}
+     		$("#tab").html(table);
+     	}
+     		else{
+	    		alert("请先登录 不然没数据")
+	    		}
+     	 },
+     	 error:function(request){
+		    	alert("服务器加载中")
+		    } 
+	 })
+   }
+  
+</script>
+</html>

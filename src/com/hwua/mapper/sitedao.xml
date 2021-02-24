@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace="com.hwua.dao.SiteDao">
+   
+  
+   <select id="queryAll1" resultType="site">
+      select * from  site
+   </select>
+   <select id="addOne1" parameterType="site">
+       insert into site (t_name,t_dizhi,t_phone) values (#{t_name},#{t_dizhi},#{t_phone})
+   </select>
+   <select id="queryOne1" resultType="site" parameterType="int" >
+      select * from  site where  t_id=#{id}
+   </select>
+   <select id="deleteOne1" parameterType="int" >
+      delete from site where t_id=#{id}
+   </select>
+</mapper>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+<a href="javascript:void(0);" onclick="queryall()">显示数据</a>
+<h2 id="data"></h2>
+</body>
+<script src="../js/jquery-3.3.1.js" ></script>
+<script type="text/javascript">
+   function queryall() {
+	   var datas = {"username":"dadi","password":"12314"};
+	 $.ajax({
+		 url:"http://localhost:8080/SSMDemo2/queryall.do",
+		 data:{},
+			 //JSON.stringify(datas),
+		 dataType:"json",
+		 type:"post",
+		 contentType:"application/x-www-form-urlencoded",
+     	 dataType:"json",
+     	 success:function(data){
+     		console.log(data);
+     		$("#data").html(data.list)
+     	}
+	 })
+   }
+  
+</script>
+</html>

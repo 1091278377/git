@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<!--namespace:命名空间，用于隔离SQL -->
+<mapper namespace="com.hwua.dao.ShopDao">
+   
+  
+   <select id="queryAll1" resultType="shop">
+      select * from shop
+   </select>
+   <select id="queryAll2" resultType="shop" parameterType="double">
+      select * from shop where s_price &lt; #{price}
+   </select>
+   <select id="queryOne1" resultType="shop" parameterType="int" >
+      select * from shop where s_id=#{id}
+   </select>
+  
+ 
+    
+
+</mapper>

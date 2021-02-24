@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<!--namespace:命名空间，用于隔离SQL -->
+<mapper namespace="com.hwua.dao.UserDao">
+   
+   <!-- 1、在dao这里添加注解@Param(这里是你需要的别名)   2、默认的方式arg0、arg1....-->
+   <select id="queryByNameAndPassword" parameterType="string" resultType="int">
+      select count(*) from shopuser where username=#{arg0} and password=#{arg1}
+   </select>
+   <select id="queryAll" resultType="user">
+      select * from shopuser
+   </select>
+   <select id="insertOne" parameterType="String">
+   
+      insert into shopuser (username,password) values (#{arg0},#{arg1})
+      
+   </select>
+   <!-- <insert id="addOrder" parameterType="Order">
+      <selectKey keyProperty="orderId" order="AFTER" resultType="int">
+          select LAST_INSERT_ID()
+      </selectKey>
+        insert into Orders(order_id,user_id,os_id,address_id,order_amount)
+        values(null,#{userId},1,#{addressId},#{orderAmount})
+
+    </insert> -->
+  
+
+</mapper>
